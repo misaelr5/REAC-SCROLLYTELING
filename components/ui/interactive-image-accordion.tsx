@@ -9,31 +9,32 @@ interface AccordionItemData {
   imageUrl: string;
 }
 
+// Recorrido de trabajo (no repite los servicios ya explicados en ReacStory).
 const accordionItems: AccordionItemData[] = [
   {
     id: 1,
-    title: 'Marketing Digital',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    id: 2,
-    title: 'Desarrollo Web',
-    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop',
-  },
-  {
-    id: 3,
-    title: 'Automatizaciones',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    id: 4,
     title: 'Estrategia',
     imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
   },
   {
-    id: 5,
-    title: 'Branding',
+    id: 2,
+    title: 'Diseño',
     imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop',
+  },
+  {
+    id: 3,
+    title: 'Desarrollo',
+    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop',
+  },
+  {
+    id: 4,
+    title: 'Lanzamiento',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop',
+  },
+  {
+    id: 5,
+    title: 'Crecimiento',
+    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop',
   },
 ];
 
@@ -96,18 +97,18 @@ export function LandingAccordionItem() {
           {/* Texto / CTA */}
           <div className="w-full md:w-1/2 text-center md:text-left flex flex-col gap-6">
             <span className="text-[#b566ff] text-xs font-mono tracking-[0.3em] uppercase">
-              / Empecemos
+              / Así trabajamos
             </span>
             <h2 className="bg-gradient-to-br from-slate-100 to-slate-400 bg-clip-text text-transparent text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight">
-              ¿Listo para hacer<br />crecer tu negocio?
+              De la idea<br />al resultado
             </h2>
             <div className="h-px w-16 bg-[#b566ff]/60 mx-auto md:mx-0" />
             <p className="text-white/40 text-base font-light tracking-wide max-w-md mx-auto md:mx-0">
-              Contanos qué necesitás y diseñamos la estrategia exacta para tu caso. Sin plantillas, sin vueltas.
+              Un proceso claro de principio a fin: estrategia, diseño, desarrollo y crecimiento. Vos enfocate en tu negocio, del resto nos ocupamos nosotros.
             </p>
             <div className="mt-2">
               <HoverButton href="#contacto" className="shadow-[0_0_40px_-12px_#b566ff]">
-                Hablemos
+                Agendá una llamada
               </HoverButton>
             </div>
           </div>

@@ -13,6 +13,7 @@ import { TestimonialsMarquee } from "@/components/ui/testimonials-marquee";
 import { FaqSection } from "@/components/ui/faq-section";
 import { ProjectsSection } from "@/components/ui/projects-section";
 import { HoverButton } from "@/components/ui/hover-glow-button";
+import { SiteNavbar } from "@/components/ui/site-navbar";
 import Footer4Col from "@/components/ui/footer-column";
 
 const services = ["Marketing", "Desarrollo Web", "Automatizaciones"];
@@ -29,6 +30,9 @@ const painPoints = [
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full bg-black">
+
+      {/* ── Navbar fijo ── aparece al pasar el módulo 3 (sentinela #nav-trigger) */}
+      <SiteNavbar />
 
       {/* ── Hero ── scroll-driven lamp (ya tiene pinned + scroll animation) */}
       <LampContainer>
@@ -66,15 +70,20 @@ export default function Home() {
         </div>
       </ScrollReveal>
 
-      {/* ── Marquee ── fade + scale al entrar */}
+      {/* ── 2 · Solución / Servicios ── story scroll con stacking GSAP */}
+      <div id="servicios">
+        <ReacStory />
+      </div>
+
+      {/* ── 3 · Problema ── pain points: fade + scale al entrar */}
       <ScrollReveal direction="scale" duration={1} margin="-40px">
         <PerspectiveMarquee items={painPoints} />
       </ScrollReveal>
 
-      {/* ── Servicios ── story scroll con stacking GSAP */}
-      <ReacStory />
+      {/* ── Sentinela ── a partir de acá aparece el navbar fijo */}
+      <div id="nav-trigger" aria-hidden className="h-0 w-full" />
 
-      {/* ── Showcase visual ── tilt scroll (ya tiene animación) */}
+      {/* ── 4 · Resultados ── showcase visual con tilt scroll */}
       <ScrollReveal direction="up" distance={60} duration={0.9} margin="-60px">
         <section className="bg-black" style={{ perspective: "1000px" }}>
           <ContainerTextScroll
@@ -104,12 +113,20 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* ── Proyectos / Portfolio ── carrusel horizontal */}
+      {/* ── 5 · Prueba: trabajo ── carrusel horizontal de proyectos */}
       <ScrollReveal direction="up" distance={48} duration={0.9} margin="-60px">
         <ProjectsSection />
       </ScrollReveal>
 
-      {/* ── CTA texto ── pinned: entra, se queda, sale */}
+      {/* ── 6 · Prueba: testimonios (card stack) ── */}
+      <ScrollReveal direction="up" distance={40} duration={0.8} margin="-40px">
+        <TestimonialsSection />
+      </ScrollReveal>
+
+      {/* ── 7 · Prueba: testimonios (columnas marquee) ── agrupado con el anterior */}
+      <TestimonialsMarquee />
+
+      {/* ── 8 · CTA intermedio ── pinned: entra, se queda, sale */}
       <PinnedTextSection className="bg-black">
         <section className="px-8 flex flex-col items-center justify-center gap-10">
           <h2 className="text-4xl md:text-6xl font-light text-center text-white/40 leading-tight max-w-4xl">
@@ -127,12 +144,15 @@ export default function Home() {
         </section>
       </PinnedTextSection>
 
-      {/* ── Testimonials ── card stack scroll (ya tiene animación) */}
-      <ScrollReveal direction="up" distance={40} duration={0.8} margin="-40px">
-        <TestimonialsSection />
+      {/* ── 9 · Objeciones ── preguntas frecuentes */}
+      <FaqSection />
+
+      {/* ── 10 · CTA final ── acordeón interactivo (proceso + cierre) */}
+      <ScrollReveal direction="up" distance={48} duration={0.9} margin="-60px">
+        <LandingAccordionItem />
       </ScrollReveal>
 
-      {/* ── Wavy cierre ── fade in + las palabras ya tienen wavy scroll */}
+      {/* ── 11 · Cierre de marca ── wavy, termina en "Reac Studio" → footer */}
       <ScrollReveal direction="none" duration={1.2} margin="-40px">
         <section className="bg-black overflow-hidden py-24">
           <WavyBlock className="flex flex-col justify-start items-start gap-6">
@@ -147,18 +167,7 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* ── Testimonios en columnas (marquee vertical) ── */}
-      <TestimonialsMarquee />
-
-      {/* ── Preguntas frecuentes ── */}
-      <FaqSection />
-
-      {/* ── CTA final ── acordeón interactivo de servicios */}
-      <ScrollReveal direction="up" distance={48} duration={0.9} margin="-60px">
-        <LandingAccordionItem />
-      </ScrollReveal>
-
-      {/* ── Footer ── */}
+      {/* ── 12 · Footer / Contacto ── */}
       <Footer4Col />
 
     </main>
